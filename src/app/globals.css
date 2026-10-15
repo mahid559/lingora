@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-brand-cream text-brand-navy-900 antialiased;
+    font-feature-settings: "cv11", "ss01";
+  }
+
+  ::selection {
+    @apply bg-brand-mint-200 text-brand-navy-900;
+  }
+
+  /* Visible, consistent focus ring everywhere. */
+  :focus-visible {
+    @apply outline-none ring-2 ring-brand-mint ring-offset-2 ring-offset-brand-cream;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .prose-lesson {
+    @apply text-[1.0625rem] leading-8 text-brand-navy-800;
+  }
+
+  .prose-lesson p {
+    @apply mb-4;
+  }
+
+  .prose-lesson strong {
+    @apply font-semibold text-brand-navy-900;
+  }
+
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-xl focus:bg-brand-navy-900 focus:px-4 focus:py-2 focus:text-white;
+  }
+
+  /* Hide scrollbar but keep scrolling (for horizontal chip rows). */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Framer Motion + GSAP helpers */
+.motion-safe\:transition {
+  @apply transition;
+}
